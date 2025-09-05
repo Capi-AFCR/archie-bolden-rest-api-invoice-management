@@ -1,0 +1,8 @@
+bin/
+obj/
+*.csproj.user
+*.sln
+Dockerfile
+*.md
+.git/
+.gitignore
