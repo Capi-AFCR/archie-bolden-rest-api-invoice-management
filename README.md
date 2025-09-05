@@ -46,9 +46,7 @@ Project Structure
 	│   ├── Middleware/
 	│   │   ├── ExceptionMiddleware.cs
 	│   ├── Program.cs
-	│   ├── appsettings-local.json
-	│   ├── appsettings-docker.json
-	│   ├── InvoiceDb.db
+	│   ├── appsettings.json
 	├── RestAPIInvoiceManagement.Application/
 	│   ├── DTOs/
 	│   │   ├── ClientDto.cs
