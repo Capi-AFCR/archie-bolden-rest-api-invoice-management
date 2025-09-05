@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestAPIInvoiceManagement.Infrastructure.Data;
 
@@ -10,9 +11,11 @@ using RestAPIInvoiceManagement.Infrastructure.Data;
 namespace RestAPIInvoiceManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250905060755_UpdateUserSeedData")]
+    partial class UpdateUserSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.8");
@@ -172,6 +175,16 @@ namespace RestAPIInvoiceManagement.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("123e4567-e89b-12d3-a456-426614174000"),
+                            CreatedAt = new DateTime(2025, 9, 1, 0, 0, 0, 0, DateTimeKind.Utc),
+                            IsDeleted = false,
+                            PasswordHash = "$2a$11$8wLU0oiAW2ihNBoz2xv74OrXC3TgDXRdLzMp4T00KBO2w.e7wnTYq",
+                            Username = "admin"
+                        });
                 });
 
             modelBuilder.Entity("RestAPIInvoiceManagement.Domain.Entities.Invoice", b =>
