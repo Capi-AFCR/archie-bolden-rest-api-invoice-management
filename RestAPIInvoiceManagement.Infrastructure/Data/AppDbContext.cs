@@ -8,6 +8,7 @@ public class AppDbContext : DbContext
     public DbSet<Invoice> Invoices => Set<Invoice>();
     public DbSet<Client> Clients => Set<Client>();
     public DbSet<Payment> Payments => Set<Payment>();
+    public DbSet<User> Users => Set<User>();
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -58,8 +59,19 @@ public class AppDbContext : DbContext
             entity.Property(p => p.IsDeleted).IsRequired().HasDefaultValue(false);
         });
 
+        modelBuilder.Entity<User>(entity =>
+        {
+           entity.HasKey(u => u.Id);
+           entity.Property(u => u.Username).IsRequired().HasMaxLength(50);
+           entity.Property(u => u.PasswordHash).IsRequired().HasMaxLength(255);
+           entity.Property(u => u.CreatedAt).IsRequired();
+           entity.Property(u => u.IsDeleted).IsRequired().HasDefaultValue(false);
+           entity.HasIndex(u => u.Username).IsUnique();
+        });
+
         modelBuilder.Entity<Invoice>().HasQueryFilter(i => !i.IsDeleted);
         modelBuilder.Entity<Client>().HasQueryFilter(c => !c.IsDeleted);
         modelBuilder.Entity<Payment>().HasQueryFilter(p => !p.IsDeleted);
+        modelBuilder.Entity<User>().HasQueryFilter(u => !u.IsDeleted);
     }
 }

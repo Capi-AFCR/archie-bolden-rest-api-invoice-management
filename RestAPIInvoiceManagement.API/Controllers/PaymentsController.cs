@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestAPIInvoiceManagement.Application.DTOs;
 using RestAPIInvoiceManagement.Application.Services;
@@ -6,7 +7,7 @@ using RestAPIInvoiceManagement.Application.Services;
 namespace RestAPIInvoiceManagement.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")][Authorize][ApiVersion("1.0")]
 public class PaymentsController : ControllerBase
 {
     private readonly PaymentService _paymentService;
