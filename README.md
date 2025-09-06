@@ -2,16 +2,16 @@ RestAPIInvoiceManagement
 
 Overview
 
-		RestAPIInvoiceManagement is a .NET 9.0 Web API for managing invoices, clients, payments, and user authentication. 
-		It uses SQLite as the database, implements API versioning (/api/v1/), and secures endpoints with JWT authentication. 
-		The API supports CRUD operations for clients and invoices, payment management, and user registration/login. 
-		The project includes unit tests and is containerized with Docker for easy deployment.
+	RestAPIInvoiceManagement is a .NET 9.0 Web API for managing invoices, clients, payments, and user authentication. 
+	It uses SQLite as the database, implements API versioning (/api/v1/), and secures endpoints with JWT authentication. 
+	The API supports CRUD operations for clients and invoices, payment management, and user registration/login. 
+	The project includes unit tests and is containerized with Docker for easy deployment.
 
 Use of AI
 		
-		It was used to know the console commands to create the base project (without code included), and how to run the API.
-		It was used for investigate causes of errors regarding <T> types, and also gave me light about some errors i had in my unit tests.
-		It was used for some clarifications about Docker installation, and wsl installation for Docker to work.
+	It was used to know the console commands to create the base project (without code included), and how to run the API.
+	It was used for investigate causes of errors regarding <T> types, and also gave me light about some errors i had in my unit tests.
+	It was used for some clarifications about Docker installation, and wsl installation for Docker to work.
 
 Features
 
@@ -28,11 +28,11 @@ Features
 Architecture
 
 	The project follows a clean architecture approach with separation of concerns:
-		Domain Layer (RestAPIInvoiceManagement.Domain): Defines entities (Client, Invoice, Payment, User) and interfaces (IClientRepository, IInvoiceRepository, IPaymentRepository, IUserRepository).
-		Application Layer (RestAPIInvoiceManagement.Application): Contains business logic in services (ClientService, InvoiceService, PaymentService, AuthenticationService), DTOs, and validators using FluentValidation.
-		Infrastructure Layer (RestAPIInvoiceManagement.Infrastructure): Implements database access using Entity Framework Core with SQLite (AppDbContext) and repository patterns.
-		API Layer (RestAPIInvoiceManagement.API): Exposes RESTful endpoints using ASP.NET Core, with controllers (ClientsController, InvoicesController, PaymentsController, UsersController), JWT authentication, and Swagger integration.
-		Test Layer (RestAPIInvoiceManagement.Tests): Includes xUnit tests for services using Moq and an in-memory database.
+	Domain Layer (RestAPIInvoiceManagement.Domain): Defines entities (Client, Invoice, Payment, User) and interfaces (IClientRepository, IInvoiceRepository, IPaymentRepository, IUserRepository).
+	Application Layer (RestAPIInvoiceManagement.Application): Contains business logic in services (ClientService, InvoiceService, PaymentService, AuthenticationService), DTOs, and validators using FluentValidation.
+	Infrastructure Layer (RestAPIInvoiceManagement.Infrastructure): Implements database access using Entity Framework Core with SQLite (AppDbContext) and repository patterns.
+	API Layer (RestAPIInvoiceManagement.API): Exposes RESTful endpoints using ASP.NET Core, with controllers (ClientsController, InvoicesController, PaymentsController, UsersController), JWT authentication, and Swagger integration.
+	Test Layer (RestAPIInvoiceManagement.Tests): Includes xUnit tests for services using Moq and an in-memory database.
 
 Project Structure
 
@@ -254,7 +254,7 @@ Launch Locally
 	dotnet run
 	
 	Access Swagger:
-	Open http://localhost:<port>/swagger (port typically 5001 or 7165).
+	Open http://localhost:<port>/swagger (port will be indicated in deployment).
 	Register a user, login, and use the JWT token to test secured endpoints.
 
 Launch with Docker
